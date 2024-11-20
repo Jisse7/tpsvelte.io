@@ -1,0 +1,599 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <title>TP Svelte</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="../ressources/logo.png">
+    <style>
+        .content-div {
+            display: none; /* Masquer toutes les sections par défaut */
+        }
+        .content-div.active {
+            display: block; /* Afficher uniquement la section active */
+        }
+    </style>
+</head>
+<body class="m-2">
+<div class="container-fluid">
+    <div class="row" style="height: 7vh;">
+        <div class="col-2 border-dark d-flex justify-content-evenly align-items-center bg-dark rounded-start">
+            <span class="h1 text-warning">Svelte.js</span>
+        </div>
+        <div class="col-8 d-flex justify-content-center align-items-end bg-dark">
+            <span class="h1 text-warning">TP Svelte : création de PDF</span>
+        </div>
+        <div class="col-2 d-flex justify-content-evenly align-items-center bg-dark rounded-end"></div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row d-flex" style="height:1080px;">
+
+        <!-- Barre de navigation fixe -->
+        <div class="d-flex align-items-center" style="position: fixed; top: 50%; left: 20px; transform: translateY(-50%);">
+            <ul class="nav flex-column" style="min-width: 200px;">
+                <nav class="nav flex-column">
+                    <a class="nav-link active" href="#" data-target="presentation">Présentation du TP</a>
+                    <a class="nav-link" href="#" data-target="etape1">Étape 1 : Installation</a>
+                    <a class="nav-link" href="#" data-target="etape2">Étape 2 : Mon premier composant</a>
+                    <a class="nav-link" href="#" data-target="etape3">Étape 3 : Appeler le composant</a>
+                    <a class="nav-link" href="#" data-target="etape4">Étape 4 : Injecter la variable</a>
+                    <a class="nav-link" href="#" data-target="etape5">Étape 5 : Générer le pdf</a>
+                    <a class="nav-link" href="#" data-target="etape6">Étape 6 : Challenge</a>
+                    <a class="nav-link" href="#" data-target="etape7">Règles du Challenge</a>
+                    <a class="nav-link text-danger" href="#" data-target="etape8">Récompenses du Challenge</a>
+                </nav>
+            </ul>
+        </div>
+        
+
+        <div class="col-12 d-flex justify-content-center align-items-center">
+         
+            <div id="presentation" class="content-div container-fluid shadow rounded border mt-2 active" style="width: 850px; min-height: 860px;">
+                <div class="row" style="min-height: 800px;">
+                    <div class="col-12 p-4">
+                        <h3>Présentation du TP :</h3>
+                        <p>
+                            L'objectif de ce TP est de vous faire découvrir toute la puissance et la simplicité de <strong>Svelte.js</strong>. 
+                            Dans ce TP, vous apprendrez à :
+                        </p>
+                        <ul>
+                            <li>Créer un projet Svelte</li>
+                            <li>Comprendre la structure d'un projet</li>
+                            <li>Découvrir le contenu d'un composant</li>
+                            <li>Exporter une variable</li>
+                            <li>Appeler un composant</li>
+                            <li>Utiliser une directive d'événement</li>
+                        </ul>
+                        <p>
+                            À la fin de ce TP, vous serez capable de créer une application minimaliste avec Svelte.js.
+                        </p>
+            
+                        <hr>
+            
+                        <p>La base du TP doit ressembler à ceci :</p>
+             
+
+                        <p>Ci-dessous, la page de la fausse prévisualisation :</p>
+                        <div class="text-center">
+                            <img src="main.png" class="img-fluid border rounded" alt="Aperçu de la page principale">
+                        </div>
+            
+                        <hr>
+            
+                        <p>Ci-dessous, le pdf :</p>
+                        <div class="text-center">
+                            <img src="mainpdf.png" class="img-fluid border rounded" alt="Aperçu du PDF généré">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Autres sections -->
+            <div id="etape1" class="content-div container-fluid shadow rounded border mt-2" style="width: 850px; min-height: 860px;">
+                <div class="row" style="min-height: 800px;">
+                    <div class="col-12 p-4">
+                        <h3>Étape 1 : Installation</h3>
+                        <p>
+                            Avant de commencer, assurez-vous d'avoir <strong>Node.js</strong> installé sur votre machine. 
+                            Node.js permet d'exécuter du JavaScript partout. Vous pouvez vérifier votre installation en ouvrant un terminal et en exécutant :
+                        </p>
+                        <pre><code>node -v</code></pre>
+                        <p>Vous devriez voir s’afficher une version de Node.js. Si ce n’est pas le cas, téléchargez et installez Node.js depuis <a href="https://nodejs.org/" target="_blank">nodejs.org</a>.</p>
+                        
+                        <hr>
+            
+                        <h4>Instructions :</h4>
+                        <ol>
+                            <li>Placez-vous sur votre bureau.</li>
+                            <li>Ouvrez un terminal ou l'invite de commandes (cmd).</li>
+                            <li>Lancez les commandes suivantes :</li>
+                        </ol>
+                        
+                        <div class="bg-light p-3 rounded border">
+                            <pre><code>
+            mkdir Svelte
+            cd Svelte
+            npm create vite@latest tp-svelte --template svelte
+                            </code></pre>
+                        </div>
+                        
+                        <p>Lorsque vous y serez invité, sélectionnez <strong>Svelte</strong> comme framework, puis choisissez <strong>JavaScript</strong> comme langage.</p>
+                        
+                        <div class="bg-light p-3 rounded border">
+                            <pre><code>
+            cd tp-svelte
+            npm install
+            npm install jspdf
+            code .
+                            </code></pre>
+                        </div>
+                        
+                        <h4>Tester l'application :</h4>
+                        <p>Pour lancer votre application en mode développement, utilisez la commande suivante :</p>
+                        <div class="bg-light p-3 rounded border">
+                            <pre><code>
+            npm run dev
+                            </code></pre>
+                        </div>
+                        
+                        <p>Une fois démarrée, ouvrez l'URL fournie dans votre navigateur pour voir votre application en action.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="etape2" class="content-div container-fluid shadow rounded border mt-2" style="width: 850px; min-height: 860px;">
+                <div class="row" style="min-height: 800px;">
+                    <div class="col-12 p-4">
+                        <h3>Étape 2 : Votre premier composant</h3>
+                        <p>
+                            Pour organiser vos composants, commencez par créer un dossier dédié. Ouvrez un terminal et exécutez les commandes suivantes :
+                        </p>
+                        <div class="bg-light p-3 rounded border">
+                            <pre><code>
+            mkdir components
+            cd components
+                            </code></pre>
+                        </div>
+            
+                        <p>
+                            Le premier composant que nous allons créer sera un <strong>Header</strong>. Par convention, les noms des composants commencent par une majuscule. Créez ce fichier en exécutant :
+                        </p>
+                        <div class="bg-light p-3 rounded border">
+                            <pre><code>
+            echo. > src/components/Header.svelte
+                            </code></pre>
+                        </div>
+            
+                        <hr>
+            
+                        <h4>Structure d’un composant</h4>
+                        <p>
+                            Comme vu dans le cours, un composant Svelte est divisé en trois sections :
+                        </p>
+                        <div class="bg-light p-3 rounded border">
+                            <pre><code>
+                        &lt;script&gt;
+                            // Logique du composant
+                        &lt;/script&gt;
+                        
+                        &lt;!-- Votre code HTML --&gt;
+                        
+                        &lt;style&gt;
+                            /* Styles CSS */
+                        &lt;/style&gt;
+                            </code></pre>
+                        </div>
+                        
+            
+                        <p>
+                            Dans ce TP, nos composants devront afficher des informations transmises via une variable. Cependant, ces informations ne doivent pas être définies dans le composant lui-même. 
+                            Le composant doit être prêt à les afficher lorsqu’il sera appelé (par exemple, dans <code>App.svelte</code>).
+                        </p>
+            
+                        <h4>Créer et exporter une variable</h4>
+                        <p>Dans le fichier <code>Header.svelte</code>, ajoutez la logique suivante :</p>
+                        <div class="bg-light p-3 rounded border">
+                            <pre><code>
+                        &lt;script&gt;
+                            export let titre;
+                        &lt;/script&gt;
+                            </code></pre>
+                        </div>
+                        
+                        <p>Ensuite, ajoutez le code HTML ci-dessous pour afficher cette variable :</p>
+                        <div class="bg-light p-3 rounded border">
+                            <pre><code>
+                        &lt;div&gt;
+                            &lt;h1&gt;{titre}&lt;/h1&gt;
+                        &lt;/div&gt;
+                            </code></pre>
+                        </div>
+                        
+                        <p>
+                            Avec cela, votre composant <code>Header.svelte</code> est prêt à être utilisé. Il affichera la valeur de la variable <code>titre</code> lorsqu'elle sera transmise depuis le composant parent.
+                        </p>
+                        
+                    </div>
+                </div>
+            </div>
+            
+            
+            <div id="etape3" class="content-div container-fluid shadow rounded border mt-2" style="width: 850px; min-height: 860px;">
+                <div class="row" style="min-height: 800px;">
+                    <h3>Étape 3 : Appeler le composant.</h3>
+            
+                    <p>Vous êtes dans <code>App.svelte</code>. Supprimez tout. Copiez la structure de base ci-dessous et lisez bien les commentaires :</p>
+            
+                    <div class="bg-light p-3 rounded border">
+                        <pre><code>
+            &lt;script&gt;
+            import jsPDF from "jspdf";
+            // ici, vous importerez tous vos composants
+            
+            // Espace pour les variables partagées pour vos composants et l’instance doc de la classe jsPDF ci-dessous
+            const generatePDF = () =&gt; {
+                const doc = new jsPDF();
+                // ici, vous construirez les pages du pdf.
+                doc.save("example.pdf");
+            };
+            &lt;/script&gt;
+            
+            &lt;!-- Votre Code HTML
+                Votre Prévisualisation
+                Vos composants pour la prévisualisation
+                Votre bouton pour générer le PDF (qui est aussi un composant!) --&gt;
+            
+            &lt;style&gt;
+            /* Votre code css pour la fausse pré-visualisation */
+            &lt;/style&gt;
+                        </code></pre>
+                    </div>
+            
+                    <p>A présent, importez le composant comme suit :</p>
+            
+                    <div class="bg-light p-3 rounded border">
+                        <pre><code>
+            import Header from "./components/Header.svelte";
+                        </code></pre>
+                    </div>
+            
+                    <p>Vous pouvez maintenant appeler votre composant comme ceci en le mettant au niveau de votre code HTML :</p>
+            
+                    <div class="bg-light p-3 rounded border">
+                        <pre><code>
+            &lt;Header/&gt;
+                        </code></pre>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="etape4" class="content-div container-fluid shadow rounded border mt-2" style="width: 850px; min-height: 860px;">
+                <div class="row" style="min-height: 800px;">
+                    <h3>Étape 4 : Injecter la variable.</h3>
+            
+                    <p>
+                        Cependant, il manque quelque chose, souvenez-vous, le composant <code>Header</code> doit afficher une chaîne de caractère à partir d’une variable.
+                        Grâce à la directive d'exportation « <code>export</code> », la variable <code>titre</code> est accessible en tant que prop (propriété) depuis un composant parent (ici <code>App.svelte</code>).
+                    </p>
+            
+                    <p>Dans l’espace pour les variables partagées, ajoutez une chaîne de caractère pour le titre comme suit :</p>
+            
+                    <div class="bg-light p-3 rounded border">
+                        <pre><code>
+            const titre = "Un titre d'article Wikipédia";
+                        </code></pre>
+                    </div>
+            
+                    <p>
+                        Cette constante nous servira également pour la construction du pdf dans la méthode <code>const generatePDF = () =&gt; {.</code>
+                    </p>
+            
+                    <p>
+                        Maintenant, vous pouvez « injecter » <code>titre</code> dans votre composant tel quel :
+                    </p>
+            
+                    <div class="bg-light p-3 rounded border">
+                        <pre><code>
+            &lt;Header {titre} /&gt;
+                        </code></pre>
+                    </div>
+            
+                    <p>Vous devriez avoir ceci :</p>
+
+                    <img src="resultat.png" class="img-fluid border rounded">
+                </div>
+            
+            </div>
+            <div id="etape5" class="content-div container-fluid shadow rounded border mt-2" style="width: 850px; min-height: 860px;">
+                <div class="row" style="min-height: 800px;">
+                    <h3>Étape 5 : Générer le PDF :</h3>
+            
+                    <p>Regardons le code suivant :</p>
+            
+                    <img src="jspdf.png" class="img-fluid border rounded" alt="Aperçu du PDF généré">
+
+                    <p>Il existe de nombreuses méthodes pour construire votre PDF comme :</p>
+                    <ul>
+                        <li><code>doc.line(x1, y1, x2, y2)</code> : Dessine une ligne entre deux points (<code>x1</code>, <code>y1</code>, <code>x2</code>, <code>y2</code>);</li>
+                        <li><code>doc.rect(x, y, width, height, "F")</code> : Dessine un rectangle;</li>
+                        <li><code>doc.addImage("votreImage", "FORMAT_EN_MAJUSCULE", x, y, width, height)</code> : Ajoute une image;</li>
+                        <li>et ainsi de suite...</li>
+                    </ul>
+            
+                    <p>Pour le challenge, vous pourriez avoir besoin de consulter la <a href="https://github.com/parallax/jsPDF" target="_blank">documentation de JSPDF</a>.</p>
+            
+                    <p>A présent, essayez de rajouter le titre <code>const titre = "Un titre d'article Wikipédia";</code> dans votre PDF.</p>
+            
+                    <p>Et pour finir, le bouton :</p>
+            
+                    <div class="bg-light p-3 rounded border">
+                        <pre><code>
+            &lt;button on:click={generatePDF}&gt;Générer le PDF&lt;/button&gt;
+                        </code></pre>
+                    </div>
+
+                    <p>Pour admirer votre création, lancez la commande :</p>
+                    <div class="bg-light p-3 rounded border">
+                        <pre><code>
+        npm run dev
+                        </code></pre>
+                    </div>
+                </div>
+            </div>
+            
+            
+            <div id="etape6" class="content-div container-fluid shadow rounded border mt-2" style="width: 850px; min-height: 860px;">
+                <div class="row" style="min-height: 800px;">
+                    <h3>Étape 6 : Le challenge.</h3>
+            
+                    <p style="margin-bottom: 10px;">Pour ce challenge, vous avez tout en possession pour le réussir ! N'hésitez pas à revenir en arrière et à regarder le cours. Il vous est demandé de reproduire ce que vous venez de faire.</p>
+                    
+                    <p style="margin-bottom: 10px;">N’essayez pas d’attribuer de valeur aux variables de vos composants !</p>
+                    
+                    <p style="margin-bottom: 10px;">Ci-dessous, le code de base du fichier <code>App.svelte</code> pour ce challenge :</p>
+                    
+                    <div class="bg-light p-3 rounded border" style="margin-bottom: 10px;">
+                        <pre><code>
+            &lt;script&gt;
+            // tous vos composants
+            import jsPDF from "jspdf";
+            import Header from "./components/Header.svelte";
+            
+            // Variables partagées
+            const titre = "Un titre d'article Wikipédia";
+            
+            const generatePDF = () => {
+                const doc = new jsPDF();
+                // ici, vous construirez les pages du pdf.
+                
+                // Page 1
+                doc.setFontSize(20);
+                doc.text("Page 1", 10, 10);
+                // Ajouter l'en-tête
+                doc.text(titre, 10, 30);
+                
+                doc.save("example.pdf");
+            }
+            &lt;/script&gt;
+            
+            &lt;!-- Prévisualisation --&gt;
+            &lt;div class="preview-container"&gt;
+                &lt;h2&gt;Prévisualisation du PDF&lt;/h2&gt;
+            
+                &lt;!-- Page 1 --&gt;
+                &lt;div class="page"&gt;
+                    &lt;Header {titre}/&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            
+            &lt;!-- TO DO : Bouton pour générer le PDF qui est un composant --&gt;
+            
+            &lt;style&gt;
+            .preview-container {
+                min-width: 600px;
+                min-height: 1000px;
+                border: 1px solid #ddd;
+                padding: 20px;
+                margin-bottom: 20px;
+                border-radius: 8px;
+                background-color: #f9f9f9;
+            }
+            .page {
+                min-width: 400px;
+                min-height: 600px;
+                border: 1px dashed #aaa;
+                margin-bottom: 20px;
+                padding: 15px;
+                background: white;
+            }
+            &lt;/style&gt;
+                        </code></pre>
+                    </div>
+            
+                    <p style="margin-bottom: 10px;">Pour générer l’image dans le PDF :</p>
+                    <ul style="margin-bottom: 10px;">
+                        <li>ENREGISTRER L’IMAGE DANS LE DOSSIER public</li>
+                        <li>Utilisez la méthode suivante : <code>doc.addImage("votreImage", "FORMAT_EN_MAJUSCULE", x, y, width, height);</code></li>
+                    </ul>
+            
+                    <p style="margin-bottom: 10px;">Nous aurions pu créer un composant <code>page</code> pour la fausse prévisualisation et y inclure nos éléments de page, et donc avoir des composants imbriqués (voir la section <code>&lt;Nested/&gt;</code> de Svelte.js). Nous ne le ferons pas ici. Pour simuler l’affichage d’une page A4, utilisez le code suivant et intégrez le dans App.svelte :</p>
+            
+                    <div class="bg-light p-3 rounded border" style="margin-bottom: 10px;">
+                        <pre><code>
+            &lt;!-- Prévisualisation --&gt;
+            &lt;div class="preview-container"&gt;
+                &lt;h2&gt;Prévisualisation du PDF&lt;/h2&gt;
+            
+                &lt;!-- Page 1 --&gt;
+                &lt;div class="page"&gt;
+                    &lt;Header {titre}/&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            
+            &lt;!-- TO DO : Bouton pour générer le PDF qui est un composant --&gt;
+            
+            &lt;style&gt;
+            .preview-container {
+                min-width: 600px;
+                min-height: 1000px;
+                border: 1px solid #ddd;
+                padding: 20px;
+                margin-bottom: 20px;
+                border-radius: 8px;
+                background-color: #f9f9f9;
+            }
+            .page {
+                min-width: 400px;
+                min-height: 600px;
+                border: 1px dashed #aaa;
+                margin-bottom: 20px;
+                padding: 15px;
+                background: white;
+            }
+            &lt;/style&gt;
+                        </code></pre>
+                    </div>
+            
+                  
+                </div>
+            </div>
+            
+            <div id="etape7" class="content-div container-fluid shadow rounded border mt-2" style="width: 850px; min-height: 860px;">
+                <div class="row" style="min-height: 800px; padding-left: 30px;">
+                    <h3>Règles Générales</h3>
+                    <ul style="margin-bottom: 10px;">
+                        <li><strong>M. Pellier Damien</strong> est de facto le grand vainqueur de ce challenge.</li>
+                        <li>Les alternants peuvent participer, mais seront immédiatement disqualifiés.</li>
+                        <li>Le travail en binôme est possible, mais cela divise la récompense par deux.</li>
+                        <li>Les participants <strong>peuvent se déplacer dans la pièce </strong>afin de voir le travail des autres participants et jauger la qualité de leur propre travail (voir la section Récompenses pour comprendre).</li>
+                        <li><strong>Pas d'IA.</strong></li>
+                    </ul>
+            
+                    <h3 style="margin-bottom: 10px;">Règles pour l'élaboration du PDF</h3>
+                    <ul style="margin-bottom: 10px;">
+                        <li><strong>EN AUCUN CAS</strong> il ne vous est demandé de faire une interface graphique pour construire le PDF. Un bouton "Générer le PDF" suffira.</li>
+                        <li>Comme pour le début du tp, il faut une fausse prévisualisation qui doit correspondre à peut près au pdf. Les composants vous serviront à créer cette fausse prévisualisation. Vous allez donc devoir coder une fois la fausse prévisualisation et une seconde fois pour le pdf. Ne vous inquiétez pas, avec les composants et l'export des variables, cela ne sera pas long.</li>
+                        <li>Vous utiliserez les variables partagées dans <code>App.svelte</code> pour la création du pdf et la fausse prévisualisation.</li>
+                        <li>Le PDF devra comporter au moins <strong>2 pages</strong>.</li>
+                        <li>Le code principal doit inclure au moins <strong>6 composants</strong>, donc 6 fichiers différents (App.svelte exclu), parmi lesquels :</li>
+                        <ul style="margin-bottom: 10px;">
+                            <li>La <strong>date de création du PDF</strong>.</li>
+                            <li>Une entête pour chaque page.</li>
+                            <li>un pied de page pour chaque page.</li>
+                            <li>Du <strong>texte comme contenu principal</strong>.</li>
+                            <li>Au moins une image à <strong>mettre dans le dossier public</strong></li>
+                            <li>Le <strong>bouton pour générer le pdf</strong></li>
+                        </ul>
+                        <li>L’entête sera composé d’un titre d’un article quelconque trouvé sur Wikipédia.</li>
+                        <li>Le pied de page sera composé des noms et prénoms du groupe.</li>
+                        <li>Le contenu de ce tableau devra être affiché sur l'une des pages.</li>
+                        <li>Vous êtes libre de choisir les textes à intégrer sur chaque page.</li>
+                        <li>Le bouton se trouvera en bas de page en dessous de la prévisualisation.</li>
+                        <li>Vous devez inclure la phrase <strong>"J'adore Svelte"</strong> sur chaque page.</li>
+                        <li>Pour le bouton, celui-ci doit également être un composant et devra utiliser la directive d'événement <code>on:click</code>.</li>
+                    </ul>
+            
+                    <h3 style="margin-bottom: 10px;">Astuces en Vrac</h3>
+                    <ul style="margin-bottom: 10px;">
+                        <li><strong>Choisissez bien votre partenaire</strong>.</li>
+                        <li>La couleur préférée de <strong>Boujouhra Yanis</strong> avant 2023 est <strong>le bleu</strong>.</li>
+                        <li>La couleur préférée de <strong>Feydel Jean-Christophe</strong> est peut-être <strong>le bordeaux</strong> (faites bien attention).</li>
+                        <li>Pour la date et le bouton, vous pouvez « stocker » une fonction dans une variable, c'est du js!</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="etape8" class="content-div container-fluid shadow rounded border mt-2" style="width: 850px; min-height: 860px;">
+                <div class="row" style="min-height: 800px; padding-left: 30px;">
+                    <h3 class="mb-4">Récompenses</h3>
+                  
+                    <p>
+                        Pour obtenir une récompense, vous devez obligatoirement respecter 
+                        les règles de l'élaboration du PDF. Sur cette base, 
+                        <strong>le reste de l'évaluation se jouera sur la subjectivité absolue du jury.</strong>
+                    </p>
+                  
+                    <h4 class="mt-4">Récompenses disponibles :</h4>
+                    <ul style="list-style: disc; margin-left: 20px;">
+                        <li>
+                            <strong>Prix de l'excellence :</strong> Le groupe rendant un code 
+                            <strong>propre</strong>, couplé d'une fausse prévisualisation et d'un PDF 
+                            de niveau <strong>professionnel</strong>, gagnera une boîte de bonbons 
+                            <strong>HARIBO Langue qui pique (1kg).</strong>
+                        </li>
+
+                        <img src="haribo.png" class="img-fluid border rounded" alt="haribo">
+
+                        <li class="mt-2">
+                            <strong>Prix de l'originalité :</strong> Le groupe rendant un PDF et une 
+                            prévisualisation les plus <strong>bâclés et immondes</strong>, MAIS 
+                            particulièrement <strong>originaux</strong>, gagnera :
+                            <ul style="list-style: square; margin-left: 20px;">
+                                <li>Un pot de Nutella (450g)</li>
+                                <li>Une cuillère en bronze</li>
+                            </ul>
+                        </li>
+
+                        <img src="450gpot.jpg" class="img-fluid border rounded" alt="nut">
+
+
+                        <li class="mt-2">
+                            <strong>Prix de l'acceptable :</strong> Le groupe produisant un travail 
+                            <strong>moyen</strong> gagnera également :
+                            <ul style="list-style: square; margin-left: 20px;">
+                                <li>Un pot de Nutella (450g)</li>
+                                <li>Une cuillère en bronze</li>
+                            </ul>
+                        </li>
+
+                        <img src="450gpot.jpg" class="img-fluid border rounded" alt="nut">
+
+
+                    </ul>
+                  
+                    <p class="mt-4">
+                        Quelle que soit votre approche, faites preuve de créativité et amusez-vous 
+                        avec le projet. Bonne chance à tous les participants !
+                    </p>
+                </div>
+            </div>
+            
+            
+        </div>
+    
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const links = document.querySelectorAll('.nav-link');
+        const contentDivs = document.querySelectorAll('.content-div');
+
+        // Initialiser l'affichage (masquer tous sauf celui avec la classe active)
+        contentDivs.forEach(div => div.classList.remove('active'));
+        document.getElementById('presentation').classList.add('active');
+
+        links.forEach(link => {
+            link.addEventListener('click', (event) => {
+                event.preventDefault();
+
+                // Obtenir l'ID cible
+                const targetId = link.getAttribute('data-target');
+
+                // Masquer toutes les sections
+                contentDivs.forEach(div => div.classList.remove('active'));
+
+                // Afficher la section cible
+                const targetDiv = document.getElementById(targetId);
+                if (targetDiv) {
+                    targetDiv.classList.add('active');
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>
