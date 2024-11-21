@@ -506,13 +506,15 @@
                         <li>Comme pour le début du tp, il faut une fausse prévisualisation qui doit correspondre à peut près au pdf. Les composants vous serviront à créer cette fausse prévisualisation. Vous allez donc devoir coder une fois la fausse prévisualisation et une seconde fois pour le pdf. Ne vous inquiétez pas, avec les composants et l'export des variables, cela ne sera pas long.</li>
                         <li>Vous utiliserez les variables partagées dans <code>App.svelte</code> pour la création du pdf et la fausse prévisualisation.</li>
                         <li>Le PDF devra comporter au moins <strong>2 pages</strong>.</li>
-                        <li>Le code principal doit inclure au moins <strong>6 composants</strong>, donc 6 fichiers différents (App.svelte exclu), parmi lesquels :</li>
+                        <li>Le code principal doit inclure au moins <strong>8 composants</strong>, donc 8 fichiers différents (App.svelte exclu), parmi lesquels :</li>
                         <ul style="margin-bottom: 10px;">
-                            <li>La <strong>date de création du PDF</strong>.</li>
+                            <li>La <strong>date de création du PDF en <strong>utilisant uen fonction</strong>.</li>
                             <li>Une entête pour chaque page.</li>
                             <li>un pied de page pour chaque page.</li>
                             <li>Du <strong>texte comme contenu principal</strong>.</li>
                             <li>Au moins une image à <strong>mettre dans le dossier public</strong></li>
+                            <li>Vous devez intégrer un tableau à dimension</li>
+                            <li>Intégrer un champ de saisie dynamique</li>
                             <li>Le <strong>bouton pour générer le pdf</strong></li>
                         </ul>
                         <li>L’entête sera composé d’un titre d’un article quelconque trouvé sur Wikipédia.</li>
@@ -521,6 +523,8 @@
                         <li>Vous êtes libre de choisir les textes à intégrer sur chaque page.</li>
                         <li>Le bouton se trouvera en bas de page en dessous de la prévisualisation.</li>
                         <li>Vous devez inclure la phrase <strong>"J'adore Svelte"</strong> sur chaque page.</li>
+                        <li>le tableau contient devra contenir le nom de tous les M2 DCISS et vous utiliserez une boucle each afficher ce tableau (voir diapo 37) </li>
+                        <li>Vous devez utiliser la directive Bind pour le champ de saisie. La valeur devra être affiché sur la fausse prévisualisation et le pdf (voir diapo 35)</li>
                         <li>Pour le bouton, celui-ci doit également être un composant et devra utiliser la directive d'événement <code>on:click</code>.</li>
                     </ul>
             
@@ -550,10 +554,10 @@
                             <strong>Prix de l'excellence :</strong> Le groupe rendant un code 
                             <strong>propre</strong>, couplé d'une fausse prévisualisation et d'un PDF 
                             de niveau <strong>professionnel</strong>, gagnera une boîte de bonbons 
-                            <strong>HARIBO Langue qui pique (1kg).</strong>
+                            <strong>HARIBO Langue qui pique (1kg).</strong>Vous penserez à les partager mais aussi aux futurs M2 IC si bon vous êtes.
                         </li>
                         <div class="text-center my-3">
-                            <img src="haribo.png" class="img-fluid border rounded" alt="haribo">
+                            <img src="haribo.png" class="img-fluid  rounded " alt="haribo">
                         </div>
             
                         <li class="mt-2">
@@ -566,11 +570,11 @@
                             </ul>
                         </li>
                         <div class="text-center my-3">
-                            <img src="450gpot.jpg" class="img-fluid border rounded" alt="nut">
+                            <img src="450gpot.jpg" class="img-fluid  rounded" alt="nut">
                         </div>
             
                         <li class="mt-2">
-                            <strong>Prix de l'acceptable :</strong> Le groupe produisant un travail 
+                            <strong>Prix de l'acceptable :</strong> Le groupe produisant le travail le plus
                             <strong>moyen</strong> gagnera également :
                             <ul style="list-style: square; margin-left: 20px;">
                                 <li>Un pot de Nutella (450g)</li>
@@ -578,7 +582,7 @@
                             </ul>
                         </li>
                         <div class="text-center my-3">
-                            <img src="450gpot.jpg" class="img-fluid border rounded" alt="nut">
+                            <img src="450gpot.jpg" class="img-fluid  rounded" alt="nut">
                         </div>
                     </ul>
                   
