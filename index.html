@@ -8,23 +8,35 @@
     <title>TP Svelte</title>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="icon" type="image/x-icon" href="../ressources/logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
     <style>
+          .header-title {
+        font-family: 'Roboto', sans-serif; /* Utilise la police Roboto */
+    }
         .content-div {
             display: none; /* Masquer toutes les sections par défaut */
         }
         .content-div.active {
             display: block; /* Afficher uniquement la section active */
         }
+
+     
+    .nav-link {
+        font-size: 1.2rem; /* Augmente la taille de la police */
+    }
+
+
     </style>
 </head>
 <body class="m-2">
 <div class="container-fluid">
-    <div class="row" style="height: 7vh;">
+    <div class="row" style="height: 9vh;">
         <div class="col-2 border-dark d-flex justify-content-evenly align-items-center bg-dark rounded-start">
-            <span class="h1 text-warning">Svelte.js</span>
+            <span class="h1 text-warning"></span>
         </div>
-        <div class="col-8 d-flex justify-content-center align-items-end bg-dark">
-            <span class="h1 text-warning">TP Svelte : création de PDF</span>
+        <div class="col-8 d-flex justify-content-center align-items-center bg-dark">
+            <span class="h1 text-warning">TP Svelte : découverte de Svelte.js</span>
         </div>
         <div class="col-2 d-flex justify-content-evenly align-items-center bg-dark rounded-end"></div>
     </div>
@@ -45,8 +57,23 @@
                     <a class="nav-link" href="#" data-target="etape5">Étape 5 : Générer le pdf</a>
                     <a class="nav-link" href="#" data-target="etape6">Étape 6 : Challenge</a>
                     <a class="nav-link" href="#" data-target="etape7">Règles du Challenge</a>
-                    <a class="nav-link text-danger" href="#" data-target="etape8">Récompenses du Challenge</a>
+                
+                    <a class="nav-link text-danger" 
+                       href="#" 
+                       data-target="etape8" 
+                       style="font-size: 20px; 
+                              font-weight: bold; 
+                              color: #FF4500; 
+                              background: linear-gradient(90deg, #FFD700, #FF4500); 
+                              text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); 
+                              padding: 10px 15px; 
+                              border-radius: 8px; 
+                              margin-top: 10px; 
+                              display: inline-block;">
+                       🎯Récompenses du Challenge ! 🏆
+                    </a>
                 </nav>
+                
             </ul>
         </div>
         
@@ -350,9 +377,9 @@
                 <div class="row" style="min-height: 800px;">
                     <h3>Étape 6 : Le challenge.</h3>
             
-                    <p style="margin-bottom: 10px;">Pour ce challenge, vous avez tout en possession pour le réussir ! N'hésitez pas à revenir en arrière et à regarder le cours. Il vous est demandé de reproduire ce que vous venez de faire.</p>
+                    <p style="margin-bottom: 10px;">Pour ce challenge, vous avez tout en possession pour le réussir ! N'hésitez pas à revenir en arrière et à regarder le cours. Il vous est demandé de reproduire ce que vous venez de faire mais en mieux.</p>
                     
-                    <p style="margin-bottom: 10px;">N’essayez pas d’attribuer de valeur aux variables de vos composants !</p>
+                    <p style="margin-bottom: 10px;">N’essayez pas d’attribuer de valeur directement aux variables de vos composants !</p>
                     
                     <p style="margin-bottom: 10px;">Ci-dessous, le code de base du fichier <code>App.svelte</code> pour ce challenge :</p>
                     
@@ -500,7 +527,7 @@
                     <h3 style="margin-bottom: 10px;">Astuces en Vrac</h3>
                     <ul style="margin-bottom: 10px;">
                         <li><strong>Choisissez bien votre partenaire</strong>.</li>
-                        <li>La couleur préférée de <strong>Boujouhra Yanis</strong> avant 2023 est <strong>le bleu</strong>.</li>
+                        <li>La couleur préférée de <strong>Bouhjoura Yanis</strong> avant 2023 est <strong>le bleu</strong>.</li>
                         <li>La couleur préférée de <strong>Feydel Jean-Christophe</strong> est peut-être <strong>le bordeaux</strong> (faites bien attention).</li>
                         <li>Pour la date et le bouton, vous pouvez « stocker » une fonction dans une variable, c'est du js!</li>
                     </ul>
@@ -525,9 +552,10 @@
                             de niveau <strong>professionnel</strong>, gagnera une boîte de bonbons 
                             <strong>HARIBO Langue qui pique (1kg).</strong>
                         </li>
-
-                        <img src="haribo.png" class="img-fluid border rounded" alt="haribo">
-
+                        <div class="text-center my-3">
+                            <img src="haribo.png" class="img-fluid border rounded" alt="haribo">
+                        </div>
+            
                         <li class="mt-2">
                             <strong>Prix de l'originalité :</strong> Le groupe rendant un PDF et une 
                             prévisualisation les plus <strong>bâclés et immondes</strong>, MAIS 
@@ -537,10 +565,10 @@
                                 <li>Une cuillère en bronze</li>
                             </ul>
                         </li>
-
-                        <img src="450gpot.jpg" class="img-fluid border rounded" alt="nut">
-
-
+                        <div class="text-center my-3">
+                            <img src="450gpot.jpg" class="img-fluid border rounded" alt="nut">
+                        </div>
+            
                         <li class="mt-2">
                             <strong>Prix de l'acceptable :</strong> Le groupe produisant un travail 
                             <strong>moyen</strong> gagnera également :
@@ -549,22 +577,29 @@
                                 <li>Une cuillère en bronze</li>
                             </ul>
                         </li>
-
-                        <img src="450gpot.jpg" class="img-fluid border rounded" alt="nut">
-
-
+                        <div class="text-center my-3">
+                            <img src="450gpot.jpg" class="img-fluid border rounded" alt="nut">
+                        </div>
                     </ul>
                   
                     <p class="mt-4">
-                        Quelle que soit votre approche, faites preuve de créativité et amusez-vous 
-                        avec le projet. Bonne chance à tous les participants !
+                    
                     </p>
                 </div>
             </div>
             
             
+            
         </div>
     
+<footer class="bg-dark text-center text-white mt-2">
+    <div class="container p-2">
+        <section>
+            <p>2024 TP Svelte | IHM</p>
+            <p>Jean-Christophe FEYDEL & Yanis BOUHJOURA</p>
+        </section>
+    </div>
+</footer>
 </div>
 
 <script>
@@ -572,7 +607,7 @@
         const links = document.querySelectorAll('.nav-link');
         const contentDivs = document.querySelectorAll('.content-div');
 
-        // Initialiser l'affichage (masquer tous sauf celui avec la classe active)
+        // Initialise l'affichage (masquer tous sauf celui avec la classe active)
         contentDivs.forEach(div => div.classList.remove('active'));
         document.getElementById('presentation').classList.add('active');
 
@@ -583,10 +618,10 @@
                 // Obtenir l'ID cible
                 const targetId = link.getAttribute('data-target');
 
-                // Masquer toutes les sections
+                // Masque toutes les sections
                 contentDivs.forEach(div => div.classList.remove('active'));
 
-                // Afficher la section cible
+                // Affiche la section cible
                 const targetDiv = document.getElementById(targetId);
                 if (targetDiv) {
                     targetDiv.classList.add('active');
@@ -594,6 +629,140 @@
             });
         });
     });
+
+
+
+    // Déclaration de la variable d'état
+let etape8Clicked = false;
+
+// Déclaration des variables d'état
+let etape7Clicked = false;
+let etape8Accessible = false;
+
+// Sélection des liens
+const etape7Link = document.querySelector('a[data-target="etape7"]');
+const etape8Link = document.querySelector('a[data-target="etape8"]');
+
+// Écouteur d'événement pour le lien des règles (etape7)
+etape7Link.addEventListener('click', function(event) {
+    event.preventDefault();
+    
+    // Change l'état de la variable
+    etape7Clicked = !etape7Clicked;
+    
+    // Rend le lien des récompenses accessible si les règles ont été consultées
+    if (etape7Clicked) {
+        etape8Accessible = true;
+        console.log('Règles consultées. Accès aux récompenses autorisé.');
+    }
+    
+    // Vous pouvez ajouter d'autres actions ici si nécessaire
+});
+
+// Écouteur d'événement pour le lien des récompenses (etape8)
+etape8Link.addEventListener('click', function(event) {
+    event.preventDefault();
+    
+    // Vérifie si l'accès aux récompenses est autorisé
+    if (!etape8Accessible) {
+        // Affiche un message si l'accès n'est pas autorisé
+        alert('Vous avez même pas lu les règles du challenge que vous chezchez déjà à connaître les récompenses ? Un peu de sérieux!');
+        return;
+    }
+    
+    // Si l'accès est autorisé : 
+    console.log('Accès aux récompenses autorisé');
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const links = document.querySelectorAll('.nav-link');
+    const contentDivs = document.querySelectorAll('.content-div');
+    const etape8Div = document.getElementById('etape8');
+
+    // Vider initialement le contenu de etape8
+    etape8Div.innerHTML = '';
+
+    // Initialise l'affichage (masquer tous sauf celui avec la classe active)
+    contentDivs.forEach(div => div.classList.remove('active'));
+    document.getElementById('presentation').classList.add('active');
+
+    links.forEach(link => {
+        link.addEventListener('click', (event) => {
+            event.preventDefault();
+
+            // Obtenir l'ID cible
+            const targetId = link.getAttribute('data-target');
+
+            // Masque toutes les sections
+            contentDivs.forEach(div => div.classList.remove('active'));
+
+            // Affiche la section cible
+            const targetDiv = document.getElementById(targetId);
+            if (targetDiv) {
+                targetDiv.classList.add('active');
+
+                // Si la cible est etape7, remplir le contenu de etape8
+                if (targetId === 'etape7') {
+                    etape8Div.innerHTML = `
+                    <div class="row" style="min-height: 800px; padding-left: 30px;">
+                        <h3 class="mb-4">Récompenses</h3>
+                      
+                        <p>
+                            Pour obtenir une récompense, vous devez obligatoirement respecter 
+                            les règles de l'élaboration du PDF. Sur cette base, 
+                            <strong>le reste de l'évaluation se jouera sur la subjectivité absolue du jury.</strong>
+                        </p>
+                      
+                        <h4 class="mt-4">Récompenses disponibles :</h4>
+                        <ul style="list-style: disc; margin-left: 20px;">
+                            <li>
+                                <strong>Prix de l'excellence :</strong> Le groupe rendant un code 
+                                <strong>propre</strong>, couplé d'une fausse prévisualisation et d'un PDF 
+                                de niveau <strong>professionnel</strong>, gagnera une boîte de bonbons 
+                                <strong>HARIBO Langue qui pique (1kg).</strong>
+                            </li>
+                            <div class="text-center my-3">
+                                <img src="haribo.png" class="img-fluid border rounded" alt="haribo">
+                            </div>
+                
+                            <li class="mt-2">
+                                <strong>Prix de l'originalité :</strong> Le groupe rendant un PDF et une 
+                                prévisualisation les plus <strong>bâclés et immondes</strong>, MAIS 
+                                particulièrement <strong>originaux</strong>, gagnera :
+                                <ul style="list-style: square; margin-left: 20px;">
+                                    <li>Un pot de Nutella (450g)</li>
+                                    <li>Une cuillère en bronze</li>
+                                </ul>
+                            </li>
+                            <div class="text-center my-3">
+                                <img src="450gpot.jpg" class="img-fluid border rounded" alt="nut">
+                            </div>
+                
+                            <li class="mt-2">
+                                <strong>Prix de l'acceptable :</strong> Le groupe produisant un travail 
+                                <strong>moyen</strong> gagnera également :
+                                <ul style="list-style: square; margin-left: 20px;">
+                                    <li>Un pot de Nutella (450g)</li>
+                                    <li>Une cuillère en bronze</li>
+                                </ul>
+                            </li>
+                            <div class="text-center my-3">
+                                <img src="450gpot.jpg" class="img-fluid border rounded" alt="nut">
+                            </div>
+                        </ul>
+                      
+                        <p class="mt-4">
+                        
+                        </p>
+                    </div>
+                    `;
+                }
+            }
+        });
+    });
+});
 </script>
+
+
 </body>
 </html>
