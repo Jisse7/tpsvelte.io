@@ -36,7 +36,7 @@
             <span class="h1 text-warning"></span>
         </div>
         <div class="col-8 d-flex justify-content-center align-items-center bg-dark">
-            <span class="h1 text-warning">TP Svelte : découverte de Svelte.js</span>
+            <span class="h1 text-warning"> <strong>TP Svelte : découverte de Svelte.js</strong></span>
         </div>
         <div class="col-2 d-flex justify-content-evenly align-items-center bg-dark rounded-end"></div>
     </div>
@@ -344,7 +344,7 @@
                     <img src="jspdf.png" class="img-fluid border rounded" alt="Aperçu du PDF généré">
 
                     <p>Il existe de nombreuses méthodes pour construire votre PDF comme :</p>
-                    <ul>
+                    <ul class="ms-2 ps-2">
                         <li><code>doc.line(x1, y1, x2, y2)</code> : Dessine une ligne entre deux points (<code>x1</code>, <code>y1</code>, <code>x2</code>, <code>y2</code>);</li>
                         <li><code>doc.rect(x, y, width, height, "F")</code> : Dessine un rectangle;</li>
                         <li><code>doc.addImage("votreImage", "FORMAT_EN_MAJUSCULE", x, y, width, height)</code> : Ajoute une image;</li>
@@ -355,7 +355,7 @@
             
                     <p>A présent, essayez de rajouter le titre <code>const titre = "Un titre d'article Wikipédia";</code> dans votre PDF.</p>
             
-                    <p>Et pour finir, le bouton :</p>
+                    <p>Et pour finir, le bouton (remarque : on utilise la directive 'on:' pour appeler la fonction generatePDF):</p>
             
                     <div class="bg-light p-3 rounded border">
                         <pre><code>
